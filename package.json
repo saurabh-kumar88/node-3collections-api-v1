@@ -1,0 +1,18 @@
+{
+  "name": "nodejs_assignment",
+  "version": "1.0.0",
+  "description": "connect 3 collections by rest api",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js"
+  },
+  "author": "saurabh kumar",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mongoose": "^5.11.10",
+    "nodemon": "^2.0.7",
+    "simple-mongoose-autoincrement": "^1.2.1"
+  }
+}
