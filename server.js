@@ -26,7 +26,6 @@ check_connection.once('open', ()=>{
     console.log('Database Connection Established!');
 });
 
-
 const createUser = function(user) {
     return db.Users.create(user).then(docUser => {
       console.log("\n>> Created User:\n", docUser);
@@ -46,6 +45,31 @@ const createBusiness = function(usersId, business) {
     });
   };
 
+const createProduct_through_user = function(usersId, product) {
+  return db.Products.create(product).then(docProducts => {
+    console.log("\n>> Created product :\n", docProducts);
+
+    return db.Users.findByIdAndUpdate(
+      usersId,
+      { $push: { product: docProducts._id } },
+      { new: true, useFindAndModify: false }
+    );
+  })
+}
+
+const createProduct_through_business = function(businessId, product) {
+  return db.Products.create(product).then(docProducts => {
+    console.log("\n>> Created product :\n", docProducts);
+
+    return db.Business.findByIdAndUpdate(
+      businessId,
+      { $push: { product: docProducts._id } },
+      { new: true, useFindAndModify: false }
+    );
+  })
+}
+
+ 
 const run = async function(){
     var user = await createUser({
         name : "test user2",
@@ -74,6 +98,32 @@ const getUsersWithPopulate = function(id) {
     return db.Users.findById(id).populate("business");
   };
 
+const run2 = async function() {
+  var user = await createUser({
+    name : "test user5",
+    email: "XXXXXXX@gmail.com",
+    bio: "bla vla&*&*&*",
+    profilePic:"my imag(*(e",
+});
 
-run();
+  user = await createBusiness(user._id,{
+      name:"automotive",
+      email:"*****%%%@gmail.com",
+      registrationNo:"XXXHDSG120",
+  });
+
+  user = await createProduct_through_user(user._id,{
+    name:"toy car",
+    mrp:"120",
+    description:"rc toy car for kids",
+    image:"car image",
+
+  });
+}
+
+// run2();
+// run();
+
+
+
 

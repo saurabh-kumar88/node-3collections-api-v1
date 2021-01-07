@@ -12,7 +12,12 @@ const Users = mongoose.model(
       business: [{
           type:mongoose.Schema.Types.ObjectId,
           ref:"Business"
+      }],
+      products : [{
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Products"
       }]
+
     })
   );
   

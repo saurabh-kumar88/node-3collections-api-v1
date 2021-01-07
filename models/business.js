@@ -6,7 +6,11 @@ const Business = mongoose.model(
     name: String,
     email: String,
     registrationNo: String,
-    createdAt: { type : Date, default : Date.now()}
+    createdAt: { type : Date, default : Date.now()},
+    owner:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:'Users'
+    },
   })
 );
 
