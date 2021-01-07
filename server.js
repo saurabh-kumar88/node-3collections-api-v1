@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const db = require("./models");
 
+
 require('dotenv/config');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
@@ -121,6 +122,40 @@ const run2 = async function() {
   });
 }
 
+/** test code embedded database */
+
+
+/** */
+
+const addUser = async function(){
+  var post = new db.Users2({
+    name : 'Jhon doe',
+    email: 'XXCC@gmail.com',
+    bio: "HJGHJGHJJJJJJ",
+  })
+  post.business.push({
+    name:"e-commerse",
+    email:"XYZ@gmail.com",
+    registrationNo:"XBNXVH^&%^&78",
+
+  })
+  post.products.push({
+    name:'bluetooth speekers',
+    mrp:'4500',
+    description:'KHJKHKJ%^$%^',
+    image:'G&*^&%&^'
+  })
+
+  try {
+    const savedpost = await post.save();
+    console.log(savedpost);
+  } catch (error) {
+    console.log(error)
+  }
+
+}
+
+addUser()
 // run2();
 // run();
 
