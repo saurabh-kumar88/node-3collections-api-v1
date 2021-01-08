@@ -7,10 +7,6 @@ const Business = mongoose.model(
     email: {type : String, default: "XXXX"},
     registrationNo: {type : String, default: "XXXX" },
     createdAt: { type : Date, default : Date.now()},
-    owner:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:'Users'
-    },
   })
 );
 

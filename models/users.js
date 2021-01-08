@@ -13,10 +13,10 @@ const Users = mongoose.model(
           type:mongoose.Schema.Types.ObjectId,
           ref:"Business"
       }],
-      products : [{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"Products"
-      }]
+      // products : [{
+      //   type:mongoose.Schema.Types.ObjectId,
+      //   ref:"Products"
+      // }]
 
     })
   );

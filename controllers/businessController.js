@@ -1,4 +1,4 @@
-const User      = require('../models/Users');
+const User      = require('../models/clients');
 const Joi       = require('joi');
 
 
@@ -9,20 +9,25 @@ const Add = async (req, res) => {
     
       // If no error, save it to DB
       try {
-        var add_business = await User.find({ '_Id' : req.params.Id });
-        if(add_business.length == 0) return res.status(404).send({message : 'No such record found!'});
-        // res.json(add_business)
-        add_business.business.push({
-                name:"e-commerse",
-                email:"XYZ@gmail.com",
-                registrationNo:"XBNXVH^&%^&78",
-        })
+        
+        // var add_business = await User.find({ '_Id' : req.params.Id });
+        // if(add_business.length == 0) return res.status(404).send({message : 'No such record found!'});
+        // // res.json(add_business)
+        // add_business.business = [{
+        //     name : req.body.name,
+        //     email : req.body.email,
+        //     registrationNo  :  req.body.registrationNo
+        // }]
+        // var addBusiness = User.findByIdAndUpdate(req.params.Id,
+        //   { $push : { business : docBusiness._Id }})
+
+
       } catch (error) {
           res.json({message : error})
       }
       
       try {
-        const business_created = await add_business.save();
+        const business_created = await addBusiness.save();
         res.json(business_created)
       } catch (error) {
         res.json({ message : error })
@@ -58,7 +63,6 @@ const Add = async (req, res) => {
   // validating users input data for post request
   function validateInputData(inputData){
 	const schema = {
-    Id :  Joi.string().max(100).required(),
     name    : Joi.string().max(50).required(),
     email   : Joi.string().required(),
     registrationNo  : Joi.string().max(100).required(),

@@ -1,4 +1,4 @@
-const User      = require('../models/Users');
+const User      = require('../models/clients');
 const Joi       = require('joi');
 
 // list all users

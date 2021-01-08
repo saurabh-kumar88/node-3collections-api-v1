@@ -210,12 +210,12 @@ const addBusiness = async (userId, businessData) => {
 
 }
 
-addBusiness("5ff8311c07f8772c40f2adf8",
-  {
-    name:"e-commerse",
-    email:"XYZ@gmail.com",
-    registrationNo:"XBNXVH^&%^&78",
-  })
+// addBusiness("5ff8311c07f8772c40f2adf8",
+//   {
+//     name:"e-commerse",
+//     email:"XYZ@gmail.com",
+//     registrationNo:"XBNXVH^&%^&78",
+//   })
 
 // read()
 
@@ -223,6 +223,81 @@ addBusiness("5ff8311c07f8772c40f2adf8",
 // // addUser()
 // // run2();
 // // run();
+
+/** __________________________test code_______________________________________ */
+
+
+
+const createBlog = async () => {
+  var blog = new db.Blogs({
+    title : "HG wells",
+    body : "sasa sassbbs",
+    date : "2021-08-2"
+
+  })
+
+  try {
+    await blog.save();
+  } catch (error) {
+    console.log(error);
+  }
+
+
+}
+
+const addComment = async () => {
+  var comment =  db.Blogs.findById("5ff8a12b7ac02b173426d5c3", function(error, post){
+    post.comments.push({
+      title : "my second comment",
+      body : "XXXXX",
+      date : "2021-08-10" 
+    })
+
+    post.save(function(err){
+      // 
+    });
+  })
+}
+
+const updateComment = async () => {
+  var comment =  db.Blogs.findByIdAndUpdate("5ff8a12b7ac02b173426d5c3", function(error, post){
+    post.comments[0](
+      {$set : {title : "comment updated by me"} }   
+    )
+
+    post.save(function(err){
+      // 
+    });
+  })
+}
+
+const removeComment = async () => {
+  var comment =  db.Blogs.findById("5ff8a12b7ac02b173426d5c3", function(error, post){
+    post.comments[1].remove();
+    post.save(function(err){
+      // 
+    });
+  })
+}
+
+
+const addReports = async () => {
+  var report =  db.Blogs.findById("5ff8a12b7ac02b173426d5c3", function(error, post){
+    post.reports.push({
+      title : "Abusive",
+    })
+
+    post.save(function(err){
+      // 
+    });
+  })
+}
+
+// updateComment();
+// removeComment();
+// addReports();
+// addComment();
+// createBlog()
 
 
 

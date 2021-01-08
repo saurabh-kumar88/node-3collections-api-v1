@@ -20,8 +20,8 @@ var Products = new mongoose.Schema({
 });
 Products.plugin(autoincrement, {field: 'product_Id'})
 
-const Users = mongoose.model(
-    'Users',
+const Clients = mongoose.model(
+    'Clients',
     new mongoose.Schema({
         user_Id: {type:Number, default:0},
         name: String,
@@ -37,4 +37,4 @@ const Users = mongoose.model(
 
 
 
-module.exports = Users;
+module.exports = Clients;
