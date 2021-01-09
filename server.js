@@ -6,7 +6,7 @@ const bodyParser    = require('body-parser');
 
 const UsersRoute     = require('./routers/users');
 const BusinessRoute = require('./routers/business');
-
+const ProductsRoute = require('./routers/products');
 
 
 
@@ -54,7 +54,7 @@ app.listen(PORT, ()=>{
 // parent routes
 app.use('/api/v1/users', UsersRoute);
 app.use('/api/v1/business', BusinessRoute);
-
+app.use('/api/v1/products', ProductsRoute);
 
 
 // app.use('/api/employee', EmployeeRoute);
@@ -259,18 +259,6 @@ const addComment = async () => {
   })
 }
 
-const updateComment = async () => {
-  var comment =  db.Blogs.findByIdAndUpdate("5ff8a12b7ac02b173426d5c3", function(error, post){
-    post.comments[0](
-      {$set : {title : "comment updated by me"} }   
-    )
-
-    post.save(function(err){
-      // 
-    });
-  })
-}
-
 const removeComment = async () => {
   var comment =  db.Blogs.findById("5ff8a12b7ac02b173426d5c3", function(error, post){
     post.comments[1].remove();
@@ -292,6 +280,39 @@ const addReports = async () => {
     });
   })
 }
+
+const updateComment = async () => {
+  db.Blogs.findById("5ff8a12b7ac02b173426d5c3", function(err, blog){
+    var subDoc = blog.comments[0];
+    subDoc.set({title : "comment updated"});
+    const comment_updated = blog.save();
+
+    // try {
+    //   const comment_updated =  await blog.save();
+    //   console.log(comment_updated);
+    // } catch (error) {
+    //   console.log(error);
+    // }
+
+  });
+}
+
+
+const add_Business = async () => {
+  var report =  db.Users.findById("5ff958e772ac4a0848fe78d3", function(error, post){
+    post.business.push({
+      name : "e-commerse",
+      email : "XYZ@gmail.com",
+      registrationNo: "4545656"
+    })
+
+    post.save(function(err){
+      // 
+    });
+  })
+}
+
+add_Business();
 
 // updateComment();
 // removeComment();

@@ -1,10 +1,10 @@
 const express       = require('express');
 const router        = express.Router()
 
-const usersController    = require('../controllers/businessController');
+const businessController    = require('../controllers/businessController');
 
-router.post('/add', usersController.Add);
-// router.get('/list-all-users', usersController.List_users);
-// router.get('/get-user', usersController.getUser);
+router.post('/add', businessController.Add);
+router.get('/list-all-business', businessController.List_business);
+
 
 module.exports = router; 

@@ -1,4 +1,4 @@
-const User      = require('../models/clients');
+const User      = require('../models/Users');
 const Joi       = require('joi');
 
 // list all users
@@ -13,7 +13,7 @@ const List_users = async (req, res, next) => {
 
 // get user by id
 const getUser = async (req, res) => {
-    try {
+  try {
       const user = await User.find({ '_Id' : req.params.Id });
       if(user.length == 0) return res.status(404).send({message : 'No such record found!'}); 
       res.json(user);
