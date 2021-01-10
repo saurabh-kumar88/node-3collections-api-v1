@@ -1,7 +1,6 @@
 Step 1: Clone repository by git clone "repo name"
 
 Step 2: got to prject dir
-run npm init
 
 Step 3: run npm install --save
 
