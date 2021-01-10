@@ -14,8 +14,10 @@ step 6: API endpoints description
 
 1. POST http://localhost:3000/api/v1/users/add
 
+   <br>
    description : create new user
 
+   <br>
    body = {
    name : "name",
    email : "email",
