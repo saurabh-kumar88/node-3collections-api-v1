@@ -1,17 +1,8 @@
 const mongoose = require('mongoose');
 var autoincrement = require('simple-mongoose-autoincrement');
 
-var Business = new mongoose.Schema({
-    
-    business_Id: {type:Number, default:0},
-    name: String,
-    email: String,
-    registrationNo: String,
-});
-Business.plugin(autoincrement, {field: 'business_Id'})
-
 var Products = new mongoose.Schema({
-    
+
     product_Id: {type:Number, default:0},
     name: String,
     mrp: String,
@@ -20,7 +11,14 @@ var Products = new mongoose.Schema({
 });
 Products.plugin(autoincrement, {field: 'product_Id'})
 
-
+var Business = new mongoose.Schema({
+    business_Id: {type:Number, default:0},
+    name: String,
+    email: String,
+    registrationNo: String,
+    products: [Products],
+});
+Business.plugin(autoincrement, {field: 'business_Id'})
 
 var User = new mongoose.Schema({
         user_Id: {type:Number, default:0},
@@ -30,7 +28,6 @@ var User = new mongoose.Schema({
         profilePic: String,
         business: [Business],
         products: [Products],
-        createdAt: { type : Date, default : Date.now()},
     })
 User.plugin(autoincrement, {field: 'product_Id'})
 

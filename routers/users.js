@@ -3,8 +3,15 @@ const router        = express.Router()
 
 const usersController    = require('../controllers/usersController');
 
-router.post('/add', usersController.Add);
-router.get('/list-all-users', usersController.List_users);
-router.get('/get-user', usersController.getUser);
+router.post('/add', usersController.add);
+router.get('/list-all-users', usersController.list_users);
+router.get('/get-user', usersController.get_user);
+
+
+router.post('/products/add', usersController.add_product);
+router.put('/products/update', usersController.update_product);
+router.post('/products/get-product', usersController.get_product);
+router.post('/products/list-all', usersController.list_products);
+router.delete('/products/delete', usersController.delete_product);
 
 module.exports = router; 
