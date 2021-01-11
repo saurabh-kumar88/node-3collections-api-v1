@@ -4,7 +4,7 @@ Step 2: got to prject dir
 
 Step 3: run npm install --save
 
-step 4: got to .env file
+step 4: go to .env file
 enter your mongo db database uri
 
 step 5: run nodemon start dev
