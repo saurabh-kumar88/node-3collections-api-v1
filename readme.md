@@ -4,8 +4,8 @@ Step 2: got to project dir
 
 Step 3: run npm install --save
 
-step 4: go to .env file
-enter your mongo db database uri
+step 4: create .env file (environment variable)
+ATLAS_URI=enter your mongo db database uri
 
 step 5: run nodemon start dev
 
