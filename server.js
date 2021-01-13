@@ -6,7 +6,7 @@ const bodyParser    = require('body-parser');
 
 const UsersRoute     = require('./routers/users');
 const BusinessRoute = require('./routers/business');
-const ProductsRoute = require('./routers/products');
+// const ProductsRoute = require('./routers/products');
 
 
 
@@ -14,6 +14,7 @@ require('dotenv/config');
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
+
 
 try {
 mongoose.connect(
@@ -54,6 +55,6 @@ app.listen(PORT, ()=>{
 // parent routes
 app.use('/api/v1/users', UsersRoute);
 app.use('/api/v1/users/business', BusinessRoute);
-app.use('/api/v1/users/products', ProductsRoute);
+// app.use('/api/v1/users/products', ProductsRoute);
 
 

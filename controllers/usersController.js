@@ -24,7 +24,7 @@ const get_user = async (req, res) => {
   };
 
 
-// add
+// add user
 const add = async (req, res) => {
     // const { error } = validateInputData(req.body);
     // if(error) return res.status(400).send({message : error.details[0].message});
