@@ -16,6 +16,7 @@ var Business = new mongoose.Schema({
     products: [Products],
 });
 
+// main documnet
 var User = new mongoose.Schema({
         name: String,
         email: String,
@@ -25,6 +26,6 @@ var User = new mongoose.Schema({
         products: [Products],
     })
 
-const Users = mongoose.model('User', User);
-module.exports = Users;
+const Users2 = mongoose.model('User', User);
+module.exports = Users2;
 
