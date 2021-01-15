@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flask CRUD API</title>
+    <style>
+      table,td, th {
+        border: 1px solid black;
+        
+      }
+      #url{
+        width: max-content;
+      }
+      
+      
+      </style>
+      </head>
+  </head>
+  <body>
+
+    <div style="margin-left:2.5%; margin-top:5%; margin-bottom: 10%;">
+      <h1 style="margin-left:20%;">Node.js-MongoDB REST API with 3 emdbedded collections</h1>
+      <table>
+        <tr>
+          <th>Method</th>
+          <th>End point</th>
+          <th>Description</th>
+          <th>Response</th>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td id='url'>/api/v1/users/add</td>
+          <td>Creates new user
+            <br><br>body = {
+                name : "name",
+                email : "email",
+                bio : "bio",
+                profilePic : "image"
+                }</td>
+          <td>"Done"</td>
+        </tr>
+        <<tr>
+          <td>GET</td>
+          <td>/api/v1/users/list-all-users</td>
+          <td>List all users</td>
+          <td>Applicattion/json</td>
+        </tr>
+        <tr>
+          <td>GET</td>
+          <td>/api/v1/users/get-user?user_Id=userid</td>
+          <td>Get user profile by its id 
+              <br> variable : user_Id</td>
+          <td>Application/json</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/api/v1/users/products/add</td>
+          <td>Add new product under user
+            <br><br>
+            body = {
+            user_Id : "user id",
+            name : "roto360",
+            mrp : "2500",
+            description : "RC drone helicopter",
+            image : "image"
+            }
+            <br>
+          </td>
+          <td>Application/json</td>
+        </tr>
+        <tr>
+          <td>PUT</td>
+          <td>/api/v1/users/products/update</td>
+          <td>Update product by user id
+            <br><br>
+            body = {
+            user_Id : "user id",
+            name : "roto720"
+            }
+            <br>
+            note: add any other feild you want to update
+            <br>
+          </td>
+          <td>"Done"</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td>/api/v1/users/products/delete</td>
+          <td>Delete product under users collections by its user_Id & product_Id
+            <br><br>
+            body = {
+            user_Id : "user id",
+            product_Id : "product id"
+            }
+            <br>
+            variale : user_Id, product_Id
+            <br>
+          </td>
+          <td>"Done"</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/api/v1/users/products/list-all</td>
+          <td>List all products of user
+            <br><br>
+            body = {
+            user_Id : "user id",
+            }
+            <br>
+            variale : user_Id
+            <br>
+          </td>
+          <td>Application/json</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/api/v1/users/products/get-product</td>
+          <td>Get info about single product by its user id and product id
+            <br><br>
+            body = {
+            user_Id : "user id",
+            product_Id : "product id"
+            }
+            <br>
+            variales : user_Id, product_Id
+            <br>
+          </td>
+          <td>Application/json</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/api/v1/users/business/add</td>
+          <td>Add new business under user
+           <br><br>
+            body = {
+            user_Id : "user id",
+            name : "e-commerse",
+            email : "xyz@gmail.com",
+            registrationNo: "454546"
+            }
+            <br>
+          </td>
+          <td>Application/json</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/api/v1/users/business/get-business</td>
+          <td>Get info about singe business by user id and business id
+            <br><br>
+            body = {
+            user_Id : "user id",
+            business_Id : "business id"
+            }
+            <br>
+          </td>
+          <td>Application/json</td>
+        </tr>
+
+        <tr>
+          <td>POST</td>
+          <td>/api/v1/users/business/list-all</td>
+          <td>List all businesses by user_Id
+            <br><br>
+            body = {
+            user_Id : "user id",
+            }
+            <br>
+          </td>
+          <td>Application/json</td>
+        </tr>
+
+        <tr>
+          <td>POST</td>
+          <td>/api/v1/users/business/products/add</td>
+          <td>Add new product under business by user_Id & business_Id
+            <br><br>
+            body = {
+            user_Id : "user id",
+            business_Id: "business id",
+            name : "Bosch500",
+            mrp : "3000",
+            description : "hand drill for home use"
+            image : "image"
+            }
+            <br>
+          </td>
+          <td>"Done"</td>
+        </tr>
+
+        <tr>
+          <td>PUT</td>
+          <td>/api/v1/users/business/products/update</td>
+          <td>Update product under business by providing user id, business id, & product id
+            <br><br>
+            body = {
+            user_Id : "user id",
+            busiess_Id : "business id",
+            "product_Id" : "product id"
+            name : "e-commerse",
+            email : "xyz@gmail.com",
+            registrationNo: "454546"
+            }
+            <br>
+          </td>
+          <td>"Done"</td>
+        </tr>
+        <tr>
+          <td>DELETE</td>
+          <td>/api/v1/users/business/products/delete</td>
+          <td>Delete product under business by providing user id, business id, & product id
+            <br><br>
+            body = {
+                user_Id : "user id",
+                busiess_Id : "business id",
+                product_Id : "product id"
+            
+                }
+            <br>
+          </td>
+          <td>"Done"</td>
+        </tr>
+        <tr>
+          <td>POST</td>
+          <td>/api/v1/users/business/products/list-all</td>
+          <td>List all products under business by providing user id & business id
+            <br><br>
+            body = {
+                user_Id : "user id",
+                busiess_Id : "business id"
+                }
+            <br>
+          </td>
+          <td>Application/json</td>
+        </tr>
+      </table>  
+    </div>
+  </body>
+</html>

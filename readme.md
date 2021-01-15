@@ -65,19 +65,21 @@ step 6: API endpoints description
    name : "roto720"
    }
    <br>
-   note: add any other feilds to update you want to update
+   note: Add any other feild you want to update
    <br>
    response : "Done"
 
 6. DELETE http://localhost:3000/api/v1/users/products/delete
    <br>
-   description : delete product by user id
+   description : delete product by user id, and product id
    <br>
    body = {
-   user_Id : "user id"
+   user_Id : "user id",
+   product_Id : "product id"
    }
    <br>
-   variale : user_Id
+   variales : user_Id, product_Id
+
    <br>
    response : "Done"
 
