@@ -1,15 +1,11 @@
 const express       = require('express');
 const mongoose = require("mongoose");
-const db = require("./models");
+
 /** Middlewares */
 const bodyParser    = require('body-parser');
-
 const UsersRoute     = require('./routers/users');
 const BusinessRoute = require('./routers/business');
 const IndexRoute = require('./routers/index');
-
-
-
 
 require('dotenv/config');
 mongoose.set('useNewUrlParser', true);
@@ -48,10 +44,8 @@ app.use(bodyParser.json())
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, ()=>{
-    console.log(`server is running on port ${PORT}`);
-    
+    console.log(`server is running on port ${PORT}`);    
 });
-
 
 // parent routes
 app.use('/api/v1/users', UsersRoute);
