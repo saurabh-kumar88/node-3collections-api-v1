@@ -10,7 +10,7 @@ step 2: create .env file in root dir ( for environment variables) and define
 step 5: run nodemon start dev
 
 <h4>If enery things get executed okay then your console should look like this</h4><br>
-<img src="console">
+<img src="https://github.com/saurabh-kumar88/node-3collections-api-v1/blob/main/docs/dev%20server%20running.png">
 
 <h1>API endpoints description</h1>
 
