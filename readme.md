@@ -1,15 +1,18 @@
-Step 1: Clone repository by git clone "repo name"
+<h1><b>App is Live at https://node-3collections-api-v1.herokuapp.com/</b></h1>
 
-Step 2: got to project dir
+Step 1: Creat your project folder and cd to it.
+Step 1.1: Clone repository by git clone "link"
+Step 1.2: run npm install --save
 
-Step 3: run npm install --save
-
-step 4: create .env file (environment variable)
-ATLAS_URI=enter your mongo db database uri
+step 2: create .env file in root dir ( for environment variables) and define
+<br>ATLAS_URI="enter your mongo db database uri"
 
 step 5: run nodemon start dev
 
-step 6: API endpoints description
+<h4>If enery things get executed okay then your console should look like this</h4><br>
+<img src="console">
+
+<h1>API endpoints description</h1>
 
 1. POST http://localhost:3000/api/v1/users/add
 
