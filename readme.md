@@ -35,11 +35,13 @@ step 5: run nodemon start dev
    <br>
    response : Application/json
 
-3. GET http://localhost:3000/api/v1/users/get-user?user_Id=userid
+3. POST http://localhost:3000/api/v1/users/get-user
    <br>
    description : get user profile by its id
    <br>
-   variable : user_Id
+   body = {
+   user_Id : "user id"
+   }
    <br>
    response : "Application/json"
 

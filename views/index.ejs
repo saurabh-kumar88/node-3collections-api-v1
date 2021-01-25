@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flask CRUD API</title>
+    <title>Node.js CRUD API</title>
     <style>
       table,td, th {
         border: 1px solid black;
@@ -47,10 +47,12 @@
           <td>Applicattion/json</td>
         </tr>
         <tr>
-          <td>GET</td>
+          <td>POST</td>
           <td>/api/v1/users/get-user?user_Id=userid</td>
           <td>Get user profile by its id 
-              <br> variable : user_Id</td>
+              <br>body = {
+                user_Id : "user id"
+              }</td>
           <td>Application/json</td>
         </tr>
         <tr>

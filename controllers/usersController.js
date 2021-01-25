@@ -13,16 +13,13 @@ const list_users = async (req, res, next) => {
 
 // get user 
 const get_user = async (req, res) => {
-  try {
-      const user = await User.find({ '_Id' : req.params.user_Id });
-      if(user.length == 0) return res.status(404).send({message : 'No such record found!'}); 
-      res.json(user);
-    } catch (error) {
-      res.json({ message : error })
-    }
+
+  await User.findById({ '_id' : req.body.user_Id }, (err, user) => {
+    if(err) return res.json({ message : err }) 
+    res.json(user);
+  });
     
   };
-
 
 // add user
 const add = async (req, res) => {
